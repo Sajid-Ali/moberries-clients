@@ -2,7 +2,7 @@ import axios from "axios";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 
-import '../../styles/style.create.css';
+import "../../styles/style.create.css";
 
 export interface IValues {
   dob: string;
@@ -63,6 +63,14 @@ const Create: React.FC = () => {
     });
   };
 
+  const handleDropdownChanges = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    e.preventDefault();
+    setFormState({
+      ...formState,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  };
+
   const { submitSuccess, loading } = formState;
 
   return (
@@ -81,13 +89,9 @@ const Create: React.FC = () => {
           </div>
         )}
 
-        <form
-          id={"create-client-form"}
-          onSubmit={processFormSubmission}
-          noValidate={true}
-        >
+        <form id="create-client-form" onSubmit={processFormSubmission}>
           <div className="form-group col-md-12">
-            <label htmlFor="name"> Name </label>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               id="name"
@@ -95,11 +99,12 @@ const Create: React.FC = () => {
               name="name"
               className="form-control"
               placeholder="Enter client's name"
+              required
             />
           </div>
 
           <div className="form-group col-md-12">
-            <label htmlFor="email"> Email </label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -107,11 +112,12 @@ const Create: React.FC = () => {
               name="email"
               className="form-control"
               placeholder="Enter client's email email"
+              required
             />
           </div>
 
           <div className="form-group col-md-12">
-            <label htmlFor="dob"> Date of Birth </label>
+            <label htmlFor="dob">Date of Birth</label>
             <input
               type="text"
               id="dob"
@@ -119,19 +125,24 @@ const Create: React.FC = () => {
               name="dob"
               className="form-control"
               placeholder="Enter client's Date of Birth"
+              required
             />
           </div>
 
           <div className="form-group col-md-12">
-            <label htmlFor="status"> Status </label>
-            <input
-              type="text"
+            <label htmlFor="status">Status</label>
+            <select
               id="status"
-              onChange={(e) => handleInputChanges(e)}
+              onChange={(e) => handleDropdownChanges(e)}
               name="status"
               className="form-control"
-              placeholder="Enter client's status"
-            />
+              required
+            >
+              <option value="">Select status</option>
+              <option value="ACTIVE">ACTIVE</option>
+              <option value="PENDING">PENDING</option>
+              <option value="BLOCKED">BLOCKED</option>
+            </select>
           </div>
 
           <div className="form-group col-md-4 pull-right">
