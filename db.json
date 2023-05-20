@@ -1,0 +1,25 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Client_1",
+      "email": "client_1@mail.com",
+      "dob": "05-04-1991",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 2,
+      "name": "Client_2",
+      "email": "client_2@mail.com",
+      "dob": "02-02-1990",
+      "status": "ACTIVE"
+    },
+    {
+      "dob": "03/04/2000",
+      "name": "Sajid Ali",
+      "email": "sajid@rivian.com",
+      "status": "Active",
+      "id": 3
+    }
+  ]
+}
