@@ -75,7 +75,7 @@ const Create: React.FC = () => {
 
   return (
     <div>
-      <div className={"col-md-12 form-wrapper"}>
+      <div className={"form-wrapper"}>
         <h2> Create Client </h2>
         {!submitSuccess && (
           <div className="alert alert-info" role="alert">
@@ -90,7 +90,7 @@ const Create: React.FC = () => {
         )}
 
         <form id="create-client-form" onSubmit={processFormSubmission}>
-          <div className="form-group col-md-12">
+          <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
               type="text"
@@ -103,7 +103,7 @@ const Create: React.FC = () => {
             />
           </div>
 
-          <div className="form-group col-md-12">
+          <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -116,7 +116,7 @@ const Create: React.FC = () => {
             />
           </div>
 
-          <div className="form-group col-md-12">
+          <div className="form-group">
             <label htmlFor="dob">Date of Birth</label>
             <input
               type="text"
@@ -129,7 +129,7 @@ const Create: React.FC = () => {
             />
           </div>
 
-          <div className="form-group col-md-12">
+          <div className="form-group">
             <label htmlFor="status">Status</label>
             <select
               id="status"
@@ -145,7 +145,7 @@ const Create: React.FC = () => {
             </select>
           </div>
 
-          <div className="form-group col-md-4 pull-right">
+          <div className="form-group pull-right">
             <button className="btn btn-success" type="submit">
               Create Client
             </button>

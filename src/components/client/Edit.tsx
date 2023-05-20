@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import '../../styles/style.edit.css'
+import "../../styles/style.edit.css";
 
 export interface IValues {
   [key: string]: any;
@@ -72,7 +72,7 @@ const EditClient: React.FC = () => {
       {client && (
         <div>
           <div>
-            <div className="col-md-12 form-wrapper">
+            <div className="form-wrapper">
               <h2>Edit Client</h2>
 
               {submitSuccess && (
@@ -86,7 +86,7 @@ const EditClient: React.FC = () => {
                 onSubmit={processFormSubmission}
                 noValidate
               >
-                <div className="form-group col-md-12">
+                <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"
@@ -99,7 +99,7 @@ const EditClient: React.FC = () => {
                   />
                 </div>
 
-                <div className="form-group col-md-12">
+                <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
@@ -112,7 +112,7 @@ const EditClient: React.FC = () => {
                   />
                 </div>
 
-                <div className="form-group col-md-12">
+                <div className="form-group">
                   <label htmlFor="dob">Date of Birth</label>
                   <input
                     type="text"
@@ -125,7 +125,7 @@ const EditClient: React.FC = () => {
                   />
                 </div>
 
-                <div className="form-group col-md-12">
+                <div className="form-group">
                   <label htmlFor="status">Status</label>
                   <input
                     type="text"
@@ -138,7 +138,7 @@ const EditClient: React.FC = () => {
                   />
                 </div>
 
-                <div className="form-group col-md-4 pull-right">
+                <div className="form-group pull-right">
                   <button className="btn btn-success" type="submit">
                     Edit Client
                   </button>

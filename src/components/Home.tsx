@@ -18,6 +18,11 @@ const Home: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<string>("");
   const [filterStatus, setFilterStatus] = useState<string>("");
   const [clients, setClients] = useState<IClient[]>([]);
+  const [searchEmail, setSearchEmail] = useState("");
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchEmail(e.target.value);
+  };
 
   useEffect(() => {
     axios.get("http://localhost:3001/clients").then((response) => {
@@ -47,9 +52,15 @@ const Home: React.FC = () => {
     setFilterStatus(status);
   };
 
-  const filteredClients = filterStatus
+  let filteredClients = filterStatus
     ? clients.filter((client) => client.status === filterStatus)
     : clients;
+
+  if (searchEmail) {
+    filteredClients = clients.filter((client) =>
+      client.email.toLowerCase().includes(searchEmail.toLowerCase())
+    );
+  }
 
   const sortedClients = filteredClients.sort((a, b) => {
     if (sortColumn === "name") {
@@ -71,6 +82,14 @@ const Home: React.FC = () => {
       <div className="container">
         <h1>Client List App</h1>
         <div className="row">
+          <input
+            type="text"
+            value={searchEmail}
+            onChange={handleSearch}
+            className="form-control"
+            style={{ width: "96%" }}
+            placeholder="Search by Email"
+          />
           <table className="table table-bordered">
             <thead className="thead-light">
               <tr>
