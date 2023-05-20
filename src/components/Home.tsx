@@ -14,6 +14,8 @@ interface IClient {
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const [sortColumn, setSortColumn] = useState<string>("");
+  const [sortOrder, setSortOrder] = useState<string>("");
   const [clients, setClients] = useState<IClient[]>([]);
 
   useEffect(() => {
@@ -30,6 +32,24 @@ const Home: React.FC = () => {
     });
   };
 
+  const handleSort = (column: string) => {
+    if (sortColumn === column) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortOrder("asc");
+    }
+  };
+
+  const sortedClients = clients.sort((a, b) => {
+    if (sortColumn === "name") {
+      return sortOrder === "asc"
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name);
+    }
+    return 0;
+  });
+
   return (
     <div>
       {clients.length === 0 && (
@@ -44,7 +64,12 @@ const Home: React.FC = () => {
           <table className="table table-bordered">
             <thead className="thead-light">
               <tr>
-                <th scope="col">Name</th>
+                <th scope="col" onClick={() => handleSort("name")}>
+                  Name{" "}
+                  {sortColumn === "name" && (
+                    <span>{sortOrder === "asc" ? "▲" : "▼"}</span>
+                  )}
+                </th>
                 <th scope="col">Email</th>
                 <th scope="col">Date of Birth</th>
                 <th scope="col">Status</th>
@@ -52,7 +77,7 @@ const Home: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {clients.map((client) => (
+              {sortedClients.map((client) => (
                 <tr key={client.id}>
                   <td>{client.name}</td>
                   <td>{client.email}</td>

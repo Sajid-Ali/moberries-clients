@@ -15,11 +15,11 @@
       "status": "ACTIVE"
     },
     {
-      "dob": "03/04/2000",
-      "name": "Sajid Ali",
-      "email": "sajid@rivian.com",
-      "status": "Active",
-      "id": 3
+      "id": 3,
+      "name": "Client_3",
+      "email": "client_3@mail.com",
+      "dob": "02-02-1990",
+      "status": "ACTIVE"
     }
   ]
 }
