@@ -16,6 +16,7 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   const [sortColumn, setSortColumn] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
+  const [filterStatus, setFilterStatus] = useState<string>("");
   const [clients, setClients] = useState<IClient[]>([]);
 
   useEffect(() => {
@@ -41,7 +42,16 @@ const Home: React.FC = () => {
     }
   };
 
-  const sortedClients = clients.sort((a, b) => {
+  const handleFilter = (status: string) => {
+    console.log("🚀 ~ file: Home.tsx:46 ~ handleFilter ~ status:", status);
+    setFilterStatus(status);
+  };
+
+  const filteredClients = filterStatus
+    ? clients.filter((client) => client.status === filterStatus)
+    : clients;
+
+  const sortedClients = filteredClients.sort((a, b) => {
     if (sortColumn === "name") {
       return sortOrder === "asc"
         ? a.name.localeCompare(b.name)
@@ -72,7 +82,17 @@ const Home: React.FC = () => {
                 </th>
                 <th scope="col">Email</th>
                 <th scope="col">Date of Birth</th>
-                <th scope="col">Status</th>
+                <th scope="col">
+                  Status
+                  <div className="filter-dropdown">
+                    <select onChange={(e) => handleFilter(e.target.value)}>
+                      <option value="">All</option>
+                      <option value="ACTIVE">ACTIVE</option>
+                      <option value="PENDING">PENDING</option>
+                      <option value="BLOCKED">BLOCKED</option>
+                    </select>
+                  </div>
+                </th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
