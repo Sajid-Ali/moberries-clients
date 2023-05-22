@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Client Management App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Installation
+Follow these steps to set up and run the application:
 
-In the project directory, you can run:
+1. Clone the repository:
+    ```
+    git clone https://github.com/your-username/client-management-app.git
+    ```
+2. Navigate to the project directory:
+    ```
+    cd client-management-app
+    ```
+3. Install the dependencies:
+    ```
+    npm install
+    ```
 
-### `npm start`
+# Usage
+To start the application, run the following command:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    npm start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This will start the development server and launch the application in your default browser.
 
-### `npm test`
+# Features
+The application provides the following features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Displaying a table of clients with their name, date of birth, email, and status.
+* Editing and removing clients from the list.
+* Adding new clients to the list.
+* Searching for a client by email.
+* Sorting the client list in alphabetical order by name.
+* Filtering the client list based on the client's status.
 
-### `npm run build`
+Please note that the application initially includes three clients in the list.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Development
+If you want to make changes or contribute to the project, you can use the following commands:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Run tests:
+    ```
+    npm test
+    ```
+* Build the application for production:
+    ```
+    npm run build
+    ```
+The build command will generate a production-ready bundle of the application in the build directory.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Dependencies
+The application uses the following dependencies:
 
-### `npm run eject`
+* React: A JavaScript library for building user interfaces.
+* Axios: A promise-based HTTP client for making API requests.
+* react-router-dom: A routing library for React applications.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Support or do below if any error
+I'm user json-server to save data as backend, need to installl globalley the `json-server` package.
